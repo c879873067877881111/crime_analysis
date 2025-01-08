@@ -31,8 +31,8 @@ plt.show()
 
 import seaborn as sns
 from matplotlib import rcParams
-# 設定字體為微軟正黑體（或替換為系統支援的字體）
-rcParams['font.sans-serif'] = ['Microsoft JhengHei']  # 或 'SimHei' 針對 Windows 系統
+# 設定字體讓plt文字能正常顯示
+rcParams['font.sans-serif'] = ['Microsoft JhengHei']  
 rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
 # 假设 crime_type_correlation 是你的数据框
 plt.figure(figsize=(12, 8))

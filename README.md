@@ -11,17 +11,17 @@ data classification:
 
 data warehouse -> Output the original data of crime types and time in each county and city
 
-110犯罪統計.py -> join all raw data into a dataframe for 110
+110犯罪統計.py -> join all raw data into a dataframe for 110years
 
-111犯罪統計.py -> join all raw data into a dataframe for 111
+111犯罪統計.py -> join all raw data into a dataframe for 111years
 
-112犯罪統計.py -> join all raw data into a dataframe for 112
+112犯罪統計.py -> join all raw data into a dataframe for 112years
 
-Descriptive_df110 -> Export the cleaned data to a csv file for 110
+Descriptive_df110 -> Export the cleaned data to a csv file for 110years
 
-Descriptive_df111 -> Export the cleaned data to a csv file for 111
+Descriptive_df111 -> Export the cleaned data to a csv file for 111years
 
-Descriptive_df112 -> Export the cleaned data to a csv file for 112
+Descriptive_df112 -> Export the cleaned data to a csv file for 112years
 
 excelmerge.py -> Descriptive_df110, Descriptive_df111, Descriptive_df112 merge finish.csv
 

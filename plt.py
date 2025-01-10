@@ -30,10 +30,10 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
 
 import seaborn as sns
-from matplotlib import rcParams
+
 # 設定字體讓plt文字能正常顯示
-rcParams['font.sans-serif'] = ['Microsoft JhengHei']  
-rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
+plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']  
+plt.rcParams['axes.unicode_minus'] = False  # 解決負號顯示問題
 # 假设 crime_type_correlation 是你的数据框
 plt.figure(figsize=(12, 8))
 sns.heatmap(crime_type_correlation, annot=True, cmap="coolwarm", fmt=".2f")

@@ -1,8 +1,8 @@
 import pandas as pd
-df1 = pd.read_csv('11201-11203犯罪資料.csv', skipinitialspace=True)
-df2 = pd.read_csv('11204-11206犯罪資料.csv', skipinitialspace=True)
-df3 = pd.read_csv('11207-11209犯罪資料.csv', skipinitialspace=True)
-df4 = pd.read_csv('11210-11212犯罪資料.csv', skipinitialspace=True)
+df1 = pd.read_csv('data warehouse/11201-11203犯罪資料.csv', skipinitialspace=True)
+df2 = pd.read_csv('data warehouse/11204-11206犯罪資料.csv', skipinitialspace=True)
+df3 = pd.read_csv('data warehouse/11207-11209犯罪資料.csv', skipinitialspace=True)
+df4 = pd.read_csv('data warehouse/11210-11212犯罪資料.csv', skipinitialspace=True)
 df = pd.concat([df1,df2,df3,df4], axis=0).reset_index(drop = True)  #合併
 
 # 資料清理

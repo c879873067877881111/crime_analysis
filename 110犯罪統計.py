@@ -1,9 +1,9 @@
 # https://data.gov.tw/dataset/14200
 import pandas as pd
-df1 = pd.read_csv('11001-11003犯罪資料.csv', skipinitialspace=True)
-df2 = pd.read_csv('11004-11006犯罪資料.csv', skipinitialspace=True)
-df3 = pd.read_csv('11007-11009犯罪資料.csv', skipinitialspace=True)
-df4 = pd.read_csv('11010-11012犯罪資料.csv', skipinitialspace=True)
+df1 = pd.read_csv('data warehouse/11001-11003犯罪資料.csv', skipinitialspace=True)
+df2 = pd.read_csv('data warehouse/11004-11006犯罪資料.csv', skipinitialspace=True)
+df3 = pd.read_csv('data warehouse/11007-11009犯罪資料.csv', skipinitialspace=True)
+df4 = pd.read_csv('data warehouse/11010-11012犯罪資料.csv', skipinitialspace=True)
 df = pd.concat([df1,df2,df3,df4], axis=0).reset_index(drop = True)  #合併
 
 # 資料清理

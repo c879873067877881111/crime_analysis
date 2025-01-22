@@ -38,3 +38,8 @@ finish.csv -> contains the total data files of Descriptive_df110, Descriptive_df
 
 Plt.py -> Visualization of the correlation between various crime types
 
+easyStat.py -> Visualize event type distribution, hard-to-distinguish distribution, and month distribution
+
+geoAnalysis.py -> Which county, city and district has the highest number of crime cases?
+
+OneWayANOVA.R -> Determine seasonal changes in month and number of events

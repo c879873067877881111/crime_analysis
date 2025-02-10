@@ -8,7 +8,7 @@ data = pd.read_csv(file_path)
 # 確保列名正確
 data.columns = data.columns.str.strip()
 
-# 簡單統計
+# 簡單統計，三年合起來看，事件數量與類型分布、年份分布、月份分布
 # 1. 事件類型分佈
 type_counts = data['type'].value_counts()
 

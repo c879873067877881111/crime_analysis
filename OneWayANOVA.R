@@ -22,22 +22,3 @@ anova_result <- aov(as.numeric(oc_data) ~ factor(month), data = data)
 summary(anova_result)
 
 
-# 事後檢定（Tukey HSD）
-tukey_result <- TukeyHSD(anova_result)
-
-# 顯示事後檢定結果
-print("Tukey HSD 檢定結果:")
-print(tukey_result)
-# 如果 ANOVA 檢定顯著，找出具體哪些月份之間的差異顯著
-# 視覺化：繪製box plot 和差異圖表
-library(ggplot2)
-
-ggplot(data, aes(x = factor(month), y = ..count..)) +
-geom_bar(stat = "count", fill = "skyblue") +
-labs(title = "各月份事件數量分佈",
-       x = "月份",
-       y = "事件數量") +
-theme_minimal()
-
-# 畫出Tukey圖表
-plot(tukey_result)

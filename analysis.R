@@ -5,10 +5,9 @@ data <- read.csv("finish.csv")
 # 確保數據列名正確
 colnames(data) <- trimws(colnames(data))
 
-# 生成列聯表
+# 生成、檢視列聯表
 county_type_table <- table(data$oc_county, data$type)
 
-# 檢視列聯表
 print("列聯表:")
 print(county_type_table)
 

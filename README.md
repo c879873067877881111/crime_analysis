@@ -20,11 +20,11 @@ data classification:
 
 data warehouse -> Output the original data of crime types and time in each county and city
 
-110犯罪統計.py -> join all raw data into a dataframe for 110years
+crime_stat110.py -> join all raw data into a dataframe for 110years
 
-111犯罪統計.py -> join all raw data into a dataframe for 111years
+crime_stat111.py -> join all raw data into a dataframe for 111years
 
-112犯罪統計.py -> join all raw data into a dataframe for 112years
+crime_stat112.py -> join all raw data into a dataframe for 112years
 
 Descriptive_df110 -> Export the cleaned data to a csv file for 110years
 
@@ -32,14 +32,22 @@ Descriptive_df111 -> Export the cleaned data to a csv file for 111years
 
 Descriptive_df112 -> Export the cleaned data to a csv file for 112years
 
-excelmerge.py -> Descriptive_df110, Descriptive_df111, Descriptive_df112 merge finish.csv
+Merge_df110 -> Combine months of the 110 year into csv
 
-finish.csv -> contains the total data files of Descriptive_df110, Descriptive_df111, and Descriptive_df112 
+Merge_df111 -> Combine months of the 111 year into csv
+
+Merge_df112 -> Combine months of the 112 year into csv
+
+finish.csv -> contains the total data files of Merge_df110, Merge_df111, and Merge_df112
+
+csv_merge.py -> Descriptive_df110, Descriptive_df111, Descriptive_df112 merge finish.csv
 
 Plt.py -> Visualization of the correlation between various crime types
 
 easyStat.py -> Visualize event type distribution, hard-to-distinguish distribution, and month distribution
 
-geoAnalysis.py -> Which county, city and district has the highest number of crime cases?
+Corr.py -> Visualize correlations between  types and  types
+
+analysis.R -> Chi-Square fitness test
 
 OneWayANOVA.R -> Determine seasonal changes in month and number of events

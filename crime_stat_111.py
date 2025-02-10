@@ -49,4 +49,5 @@ if __name__ == "__main__":
     Descriptive_df = process_data(df)
     Descriptive_df.to_csv('Descriptive_df111.csv', index=False)
     print("數據已儲存為: Descriptive_df111.csv")
+    # 將同年不同月份的csv合併
     df.to_csv('Merge_df111.csv', index=False)

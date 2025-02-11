@@ -15,6 +15,8 @@ data$month <- as.numeric(substr(data$oc_data, 1, nchar(data$oc_data) - 2))
 提取月份時，要從左邊取出前 1 或 2 位數字
 程式碼假設「月份」是資料的開頭部分，但處理不一樣長度時，直接用 nchar() 減去數字可能導致錯誤
 
+2025-02-11 將matplotlib視覺化程式碼移到Plt，簡化程式碼可以根據需要修改函數來擴展其他功能
+
 
 data classification:
 

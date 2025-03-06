@@ -63,7 +63,7 @@ cd crime_analysis
 
 ### Requirements
 
-- Python 3.x
+- Python 
 - R (for running analysis in `analysis.R` and `OneWayANOVA.R`)
 - Required Python libraries:
   - Pandas

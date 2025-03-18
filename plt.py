@@ -2,10 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 # 引入封裝的函式
+from main_ana import read_data, process_data
+'''
 from crime_stat_110 import read_data, process_data 
 from crime_stat_111 import read_data, process_data 
 from crime_stat_112 import read_data, process_data  
-
+'''
 # 獲取清理後的數據
 df = read_data()
 Descriptive_df = process_data(df)

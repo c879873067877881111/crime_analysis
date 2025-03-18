@@ -1,25 +1,24 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import seaborn as sns
 # 讀取 CSV 文件
 file_path = 'finish.csv'
-data = pd.read_csv(file_path)
+df = pd.read_csv(file_path)
 
 # 確保列名正確
-data.columns = data.columns.str.strip()
+df.columns = df.columns.str.strip()
 
 # 簡單統計，三年合起來看，事件數量與類型分布、年份分布、月份分布
 # 1. 事件類型分佈
-type_counts = data['type'].value_counts()
+type_counts = df['type'].value_counts()
 
 # 2. 年份分佈
-year_counts = data['oc_year'].value_counts()
+year_counts = df['oc_year'].value_counts()
 
 # 3. 月份分佈
-data['month'] = data['oc_data'].astype(str).str.zfill(4).str[:2]  # 提取月份，補零
-month_counts = data['month'].value_counts().sort_index()
+df['month'] = df['oc_data'].astype(str).str.zfill(4).str[:2]  # 提取月份，補零
+month_counts = df['month'].value_counts().sort_index()
 
-# 繪圖
 fig, axes = plt.subplots(3, 1, figsize=(12, 18))
 
 # 事件類型分佈

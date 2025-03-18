@@ -13,7 +13,6 @@ def read_data():
     df = df[df.oc_county != '發生地點']
     df = df[df.type != '說明 : 機車竊盜案件因發生地在路界、縣界等區域或報案']
     df = df[df.type != '人提供失竊地點不明確時，發生地僅顯示縣、市。']
-    df.oc_county = df.oc_county.str.slice(0,3)
     df = df.dropna().reset_index(drop = True)
 
     return df

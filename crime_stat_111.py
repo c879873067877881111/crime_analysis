@@ -7,13 +7,12 @@ def read_data():
     df4 = pd.read_csv('data warehouse/11110-11112犯罪資料.csv', skipinitialspace=True)
     df = pd.concat([df1,df2,df3,df4], axis=0).reset_index(drop = True)  #合併
 
-    #資料清理
+    # 資料清理
     df = df[df.type != '案類']
     df = df[df.oc_year != '發生日期']
     df = df[df.oc_county != '發生地點']
     df = df[df.type != '說明 : 機車竊盜案件因發生地在路界、縣界等區域或報案']
     df = df[df.type != '人提供失竊地點不明確時，發生地僅顯示縣、市。']
-    df.oc_county = df.oc_county.str.slice(0,3)
     df = df.dropna().reset_index(drop = True)
     
     return df

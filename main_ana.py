@@ -1,21 +1,14 @@
 import pandas as pd
+import numpy as np
+
+file_path = 'finish.csv'
+df = pd.read_csv(file_path)
+print(np.all(pd.notnull(df))) # np.all()返回是否有缺失值
+
+print(df['type'].value_counts().to_frame().T)
+print(df['oc_year'].value_counts().to_frame().T)
 
 def read_data():
-    """讀取並清理犯罪數據，回傳處理後的 DataFrame"""
-    df1 = pd.read_csv('data warehouse/11001-11003犯罪資料.csv', skipinitialspace=True)
-    df2 = pd.read_csv('data warehouse/11004-11006犯罪資料.csv', skipinitialspace=True)
-    df3 = pd.read_csv('data warehouse/11007-11009犯罪資料.csv', skipinitialspace=True)
-    df4 = pd.read_csv('data warehouse/11010-11012犯罪資料.csv', skipinitialspace=True)
-    df = pd.concat([df1, df2, df3, df4], axis=0).reset_index(drop=True)
-
-    # 資料清理
-    df = df[df.type != '案類']
-    df = df[df.oc_year != '發生日期']
-    df = df[df.oc_county != '發生地點']
-    df = df[df.type != '說明 : 機車竊盜案件因發生地在路界、縣界等區域或報案']
-    df = df[df.type != '人提供失竊地點不明確時，發生地僅顯示縣、市。']
-    df = df.dropna().reset_index(drop=True)
-
     return df
 
 def process_data(df):
@@ -42,14 +35,14 @@ def process_data(df):
         }, ignore_index=True)
 
     Descriptive_df['案件總數'] = Descriptive_df.iloc[:, 1:9].sum(axis=1)
-    Descriptive_df['占比'] = (Descriptive_df['案件總數'] / 26407) * 100
+    Descriptive_df['占比'] = (Descriptive_df['案件總數'] / 73176) * 100
 
     return Descriptive_df
 
 if __name__ == "__main__":
     df = read_data()
     Descriptive_df = process_data(df)
-    Descriptive_df.to_csv('Descriptive_df110.csv', index=False)
-    print("數據已儲存為: Descriptive_df110.csv")
+    Descriptive_df.to_csv('Descriptive_df_total.csv', index=False)
+    print("數據已儲存為: Descriptive_df_total.csv")
     # 將同年不同月份的csv合併
-    df.to_csv('Merge_df110.csv', index=False)
+    df.to_csv('Merge_df_total.csv', index=False)

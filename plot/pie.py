@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from main_ana import read_data, process_data
+from data_cleaning.main_ana import read_data, process_data
 
 # 獲取清理後的數據
 df = read_data()

@@ -1,8 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
+import os
+import sys
+
+# 確保可以導入 data cleaning 模組
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 # 引入封裝的函式
-from main_ana import read_data, process_data
+from data_cleaning.main_ana import read_data, process_data
 '''
 from crime_stat_110 import read_data, process_data 
 from crime_stat_111 import read_data, process_data 

@@ -1,53 +1,105 @@
-Project : crime_analysis
+# Crime Analysis Project
 
-Ref textbook:
-Pandas資料清理、重塑、過濾、視覺化: Python資料分析必備套件!/Matt Harrison/ Theodore Petrou
-R錦囊妙計 (第2版)/J.D Long/ Paul Teetor
-精通大數據! R語言資料分析與應用 (第2版)/Jared P. Lander
+This project focuses on the analysis of crime data, including cleaning, reshaping, filtering, and visualizing the data using Python and R. The data primarily involves crime types, occurrence year, date, and geographic locations (county, city, district).
 
+## Reference Textbooks
+- *Pandas資料清理、重塑、過濾、視覺化: Python資料分析必備套件!* by Matt Harrison & Theodore Petrou
+- *R錦囊妙計 (第2版)* by J.D Long & Paul Teetor
+- *精通大數據! R語言資料分析與應用 (第2版)* by Jared P. Lander
 
-Ref websites:
-https://medium.com/@jason8410271027/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E6%AD%A5-%E8%B3%87%E6%96%99%E6%93%B7%E5%8F%96-%E6%95%B4%E7%90%86-%E5%8F%AF%E8%A6%96%E5%8C%96-efa30b4dde56
+## Data Fields
 
-2024-10-04 發現oc_data資料格式長度不一
-data$month <- as.numeric(substr(data$oc_data, 1, nchar(data$oc_data) - 2))
-如果 oc_data 是 "604" 或 "1121"，它們的長度分別是 3 和 4
-提取月份時，要從左邊取出前 1 或 2 位數字
-程式碼假設「月份」是資料的開頭部分，但處理不一樣長度時，直接用 nchar() 減去數字可能導致錯誤
+The following fields are used in the dataset:
+- **type** (Crime type)
+- **oc_year** (Year of occurrence)
+- **oc_data** (Date of occurrence)
+- **oc_county** (County of occurrence)
+- **oc_region** (District of occurrence)
 
+Note: **Bold** fields are standard fields in the dataset.
 
-data classification:
+## Data Source
 
-data warehouse -> Output the original data of crime types and time in each county and city
+- [Data.gov.tw Dataset](https://data.gov.tw/dataset/14200)
+- [Medium Article on Data Analysis](https://medium.com/@jason8410271027/%E8%B3%87%E6%96%99%E5%88%86%E6%9E%90%E7%AC%AC%E4%B8%80%E6%AD%A5-%E8%B3%87%E6%96%99%E6%93%B7%E5%8F%96-%E6%95%B4%E7%90%86-%E5%8F%AF%E8%A6%96%E5%8C%96-efa30b4dde56)
 
-crime_stat110.py -> join all raw data into a dataframe for 110years
+## Known Issues
 
-crime_stat111.py -> join all raw data into a dataframe for 111years
+- **2024-10-04**: The format of `oc_data` is inconsistent in length. For example, `604` and `1121` have lengths of 3 and 4, respectively. When extracting months, ensure to use the first 1 or 2 digits from the left.
+  
+  ```R
+  data$month <- as.numeric(substr(data$oc_data, 1, nchar(data$oc_data) - 2))
+  ```
+  This code assumes the month is at the beginning of the data, but the varying length may cause errors. Handle different lengths carefully.
 
-crime_stat112.py -> join all raw data into a dataframe for 112years
+## File Structure and Description
 
-Descriptive_df110 -> Export the cleaned data to a csv file for 110years
+- **data warehouse**: Outputs the raw data for crime types and time in each county and city.
+- **crime_stat110.py**: Joins raw data for the year 110 into a dataframe.
+- **crime_stat111.py**: Joins raw data for the year 111 into a dataframe.
+- **crime_stat112.py**: Joins raw data for the year 112 into a dataframe.
+- **Descriptive_df110.csv**: Exports cleaned data for the year 110.
+- **Descriptive_df111.csv**: Exports cleaned data for the year 111.
+- **Descriptive_df112.csv**: Exports cleaned data for the year 112.
+- **Merge_df110.csv**: Combines monthly data for the year 110.
+- **Merge_df111.csv**: Combines monthly data for the year 111.
+- **Merge_df112.csv**: Combines monthly data for the year 112.
+- **finish.csv**: Contains combined data from `Merge_df110`, `Merge_df111`, and `Merge_df112`.
+- **csv_merge.py**: Merges `Descriptive_df110`, `Descriptive_df111`, and `Descriptive_df112` into `finish.csv`.
+- **Plt.py**: Visualizes correlations between various crime types.
+- **easyStat.py**: Visualizes event type distribution, hard-to-distinguish distribution, and month distribution.
+- **Corr.py**: Visualizes correlations between different crime types.
+- **analysis.R**: Performs Chi-Square fitness test on the data.
+- **OneWayANOVA.R**: Analyzes seasonal changes in the month and number of events.
 
-Descriptive_df111 -> Export the cleaned data to a csv file for 111years
+## Getting Started
 
-Descriptive_df112 -> Export the cleaned data to a csv file for 112years
+To get started with this project, clone the repository:
 
-Merge_df110 -> Combine months of the 110 year into csv
+```bash
+git clone https://github.com/yourusername/crime_analysis.git
+cd crime_analysis
+```
 
-Merge_df111 -> Combine months of the 111 year into csv
+### Requirements
 
-Merge_df112 -> Combine months of the 112 year into csv
+- Python 3.x
+- R (for running analysis in `analysis.R` and `OneWayANOVA.R`)
+- Required Python libraries:
+  - Pandas
+  - Matplotlib
+  - NumPy
+  - etc.
 
-finish.csv -> contains the total data files of Merge_df110, Merge_df111, and Merge_df112
+You can install the Python requirements using:
 
-csv_merge.py -> Descriptive_df110, Descriptive_df111, Descriptive_df112 merge finish.csv
+```bash
+pip install -r requirements.txt
+```
 
-Plt.py -> Visualization of the correlation between various crime types
+### Running the Code
 
-easyStat.py -> Visualize event type distribution, hard-to-distinguish distribution, and month distribution
+1. Run the Python scripts for data processing:
+   ```bash
+   python crime_stat110.py
+   python crime_stat111.py
+   python crime_stat112.py
+   ```
 
-Corr.py -> Visualize correlations between  types and  types
+2. Merge the data:
+   ```bash
+   python csv_merge.py
+   ```
 
-analysis.R -> Chi-Square fitness test
+3. Visualize crime data:
+   ```bash
+   python Plt.py
+   ```
 
-OneWayANOVA.R -> Determine seasonal changes in month and number of events
+4. To run the R scripts for statistical analysis:
+   ```bash
+   Rscript analysis.R
+   Rscript OneWayANOVA.R
+   ```
+
+## License

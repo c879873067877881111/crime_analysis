@@ -4,7 +4,7 @@ This project focuses on the analysis of crime data, including cleaning, reshapin
 
 ## Reference Textbooks
 - *Pandas資料清理、重塑、過濾、視覺化: Python資料分析必備套件!* by Matt Harrison & Theodore Petrou
-- *R錦囊妙計 (第2版)* by J.D Long & Paul Teetor
+- *Python 教學手冊* by 洪維恩
 - *精通大數據! R語言資料分析與應用 (第2版)* by Jared P. Lander
 
 ## Data Fields
@@ -102,4 +102,3 @@ pip install -r requirements.txt
    Rscript OneWayANOVA.R
    ```
 
-## License

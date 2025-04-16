@@ -51,6 +51,10 @@ Note: **Bold** fields are standard fields in the dataset.
 - **Corr.py**: Visualizes correlations between different crime types.
 - **analysis.R**: Performs Chi-Square fitness test on the data.
 - **OneWayANOVA.R**: Analyzes seasonal changes in the month and number of events.
+- 
+## ML-Visuals
+![Poisson regression](plot/Pplot.jpeg)  
+*圖1: 利用Poisson regression去模擬每年各月份的案件數。*
 
 ## Getting Started
 
